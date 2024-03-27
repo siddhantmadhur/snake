@@ -1,4 +1,4 @@
-
+let speed = 400
 
 /**
     * This is the object for the user to collide with to get a point
@@ -265,7 +265,10 @@ async function main() {
         }
     })
 }
-
-
+/** @type {HTMLInputElement} */
+const speedInput = document.getElementById("speed-input")
+speedInput.onchange = (event) => {
+    speed = event.target.value
+}
 
 main();
