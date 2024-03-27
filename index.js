@@ -254,13 +254,13 @@ async function main() {
     }, 200)
 
     document.addEventListener("keydown", (event)=>{
-        if (event.key === "w" && (snake.direction != 3)) {
+        if ((event.key === "w" || event.code === "ArrowUp") && (snake.direction != 3)) {
             snake.direction = 1
-        } else if (event.key === "d" && (snake.direction != 4)) {
+        } else if ((event.key === "d" || event.code === "ArrowRight") && (snake.direction != 4)) {
             snake.direction = 2
-        } else if (event.key === "s" && (snake.direction != 1)) {
+        } else if ((event.key === "s" || event.code === "ArrowDown") && (snake.direction != 1)) {
             snake.direction = 3
-        } else if (event.key === "a" && (snake.direction != 2)) {
+        } else if ((event.key === "a" || event.code === "ArrowLeft") && (snake.direction != 2)) {
             snake.direction = 4
         }
     })
