@@ -73,6 +73,12 @@ class Snake {
         this.y = newY
 
 
+        if (this.x < 0 || this.x > 800 || this.y < 0 || this.y > 800){
+            this.game.game_finish = true
+            return
+
+        }
+
 
         this.ctx.fillStyle = 'white'
         this.ctx.fillRect(this.x, this.y , 20, 20)
