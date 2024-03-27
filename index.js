@@ -107,7 +107,7 @@ class Snake {
         this.y = newY
 
 
-        if (this.x < 0 || this.x > 800 || this.y < 0 || this.y > 800){
+        if (this.x < 0 || this.x > 400 || this.y < 0 || this.y > 400){
             this.game.game_finish = true
             return
 
@@ -118,7 +118,7 @@ class Snake {
         this.ctx.fillRect(this.x, this.y , 20, 20)
         if (this.apple != null) {
             if (this.apple.x == this.x && this.apple.y == this.y) {
-                this.apple = new Apple(Math.floor(Math.random() * 40) * 20, Math.floor(Math.random() * 40) * 20)
+                this.apple = new Apple(Math.floor(Math.random() * 20) * 20, Math.floor(Math.random() * 20) * 20)
                 this.appendSnake()
                 this.game.score += 1
             }else{
@@ -203,13 +203,13 @@ class Game {
 
         if (this.game_finish) {
             this.ctx.fillStyle = 'black'
-            this.ctx.fillRect(0, 0, 800, 800)
+            this.ctx.fillRect(0, 0, 400, 400)
             this.ctx.fillStyle = 'white'
-            this.ctx.font = "40px Arial"
-            this.ctx.fillText("Game over: " + this.score, 350, 350 )
+            this.ctx.font = "20px Arial"
+            this.ctx.fillText("Game over: \n" + this.score, 10, 50 )
         } else {
             this.ctx.fillStyle = 'black'
-            this.ctx.fillRect(0, 0, 800, 800)
+            this.ctx.fillRect(0, 0, 400, 400)
             switch (this.player.direction) {
                 case 1:
                     this.player.move(this.player.x, this.player.y - 20 )
@@ -245,7 +245,7 @@ async function main() {
     const snake = new Snake(20, 40, ctx)
     snake.child = secondSnake
 
-    snake.apple = new Apple(Math.floor(Math.random() * 40) * 20, Math.floor(Math.random() * 40) * 20)
+    snake.apple = new Apple(Math.floor(Math.random() * 20) * 20, Math.floor(Math.random() * 20) * 20)
     
     const game = new Game(ctx, snake)
 
