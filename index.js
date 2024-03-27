@@ -1,10 +1,26 @@
 
+
+/**
+    * This is the object for the user to collide with to get a point
+    *
+    */
 class Apple {
 
+    /** @type {number} */
     x
+
+    /** @type {number} */
     y
+    
+    /** @type {CanvasRenderingContext2D} */
     ctx
 
+    /** 
+        * @constructor
+        * @param {number} x 
+        * @param {number} y 
+        * @param {CanvasRenderingContext2D} ctx 
+        * */
     constructor(x, y, ctx) {
         this.x = x
         this.y = y
@@ -14,16 +30,23 @@ class Apple {
 
 
 }
-
+/** Recursive snake object containing all the steps for the player to move, collect apples and grow */
 class Snake {
 
+    /** @type {number} */
     x
+
+    /** @type {number} */
     y
+    
+    /** @type {CanvasRenderingContext2D} */
     ctx
 
     /** @type {Snake | null} */
     child
 
+
+    /** @type {number} */
     direction
 
     /** @type {Apple | null} */
@@ -31,7 +54,14 @@ class Snake {
 
     /** @type {Game | null} */
     game
-    
+   
+
+    /** 
+        * @constructor
+        * @param {number} x 
+        * @param {number} y 
+        * @param {CanvasRenderingContext2D} ctx 
+        * */
     constructor(x, y, ctx) {
         this.x = x
         this.y = y
@@ -62,6 +92,10 @@ class Snake {
         return player_grid
     }
 
+    /**
+        * @param {number} newX 
+        * @param {number} newY 
+        * */
     move(newX, newY) {
         if (this.child != null) {
             this.child.move(this.x, this.y)
@@ -129,6 +163,10 @@ class Snake {
 }
 
 
+/**
+    * Manages game state
+    *
+    * */
 class Game {
 
     /** @type {boolean} */
@@ -141,9 +179,15 @@ class Game {
     /** @type {CanvasRenderingContext2D} */
     ctx
     
+    /** @type {number} */
     score
 
 
+    /** 
+        * @constructor
+        * @param {CanvasRenderingContext2D} ctx 
+        * @param {Snake} snake
+        * */
     constructor(ctx, snake) {
         this.game_finish = false
         this.ctx = ctx
